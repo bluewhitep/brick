@@ -1,8 +1,5 @@
 import cv2
 
-from IPython.display import clear_output as clear
-import matplotlib.pyplot as plt
-
 import os
 import sys
 import numpy as np
