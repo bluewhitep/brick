@@ -15,7 +15,7 @@ This CLI version.
 |       python       |          3.7.9          |
 |       numpy        |          1.19.1         |
 |       pandas       |          1.2.0          |
-|       opencv       |          4.4.0          |
+|       opencv       |          4.4.0.44       |
 
 ## Option
 
