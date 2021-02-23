@@ -8,6 +8,15 @@ This CLI version.
 
 `pip install -r requirements.txt  ` 
 
+## Depend
+
+|       Depend       |          Version        |
+| :----------------: | :---------------------: |
+|       python       |          3.7.9          |
+|       numpy        |          1.19.1         |
+|       pandas       |          1.2.0          |
+|       opencv       |          4.4.0          |
+
 ## Option
 
 |       Option       |                   Description                   |
