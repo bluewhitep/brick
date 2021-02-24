@@ -10,21 +10,22 @@ This CLI version.
 
 ## Depend
 
-|       Depend       |          Version        |
-| :----------------: | :---------------------: |
-|       python       |          3.7.9          |
-|       numpy        |          1.19.1         |
-|       pandas       |          1.2.0          |
-|       opencv       |          4.4.0.44       |
+| Depend | Version  |
+| :----: | :------: |
+| python |  3.7.9   |
+| numpy  |  1.19.1  |
+| pandas |  1.2.0   |
+| opencv | 4.4.0.44 |
 
 ## Option
 
-|       Option       |                   Description                   |
-| :----------------: | :---------------------------------------------: |
-|   -v, --version    |                     Version                     |
-| -n, --nooverwrite  | Disable Overwrite at current Image to old Image |
-|   -o, --oldImage   |                 old Image Path                  |
-| -c, --currentImage |               current Image Path                |
+|        Option        |                    Description                    |
+| :------------------: | :-----------------------------------------------: |
+|    -v, --version     |                      Version                      |
+|  -n, --nooverwrite   |  Disable Overwrite at current Image to old Image  |
+|    -o, --oldImage    |                  old Image Path                   |
+|  -c, --currentImage  |                current Image Path                 |
+| -p, --pixel2distance | Pixel to distance coefficient [cm](default: 1.58) |
 
 ## Example
 
@@ -39,3 +40,12 @@ Disable Overwrite
 * `python brick.py -n` 
 
     Keep `oldImage.png` and `currentImage.png`
+
+## Result
+
+Return `[x_distance, y_distance]`
+> x_distance: Positive values is distance moved forward  
+> y_distance: Positive values is distance moved left  
+
+Unit is **centimeter**
+

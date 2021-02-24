@@ -1,10 +1,10 @@
-#   Copyright [yyyy] [bluewhitep]
+#   Copyright [2021] [bluewhitep]
 #
 #   Licensed under the Apache License, Version 2.0 (the "License");
 #   you may not use this file except in compliance with the License.
 #   You may obtain a copy of the License at
 #
-#       http://www.apache.org/licenses/LICENSE-2.0
+#       http://www.apache.org/licenses/LICENSE-2.0~
 #
 #   Unless required by applicable law or agreed to in writing, software
 #   distributed under the License is distributed on an "AS IS" BASIS,
@@ -20,9 +20,6 @@ import sys
 import getopt
 import numpy as np
 import pandas as pd
-
-#print("Open CV", cv2.__version__)
-
 
 def clearGrid(data):
     x, y = data.shape
@@ -147,8 +144,8 @@ def matchPoint(pointList1, pointList2):
 def pxielDistance(matchList):
     dist = []
     for i in range(len(matchList)):
-        x = matchList[i][1][0] - matchList[i][0][0]
-        y = matchList[i][1][1] - matchList[i][0][1]
+        y = matchList[i][1][0] - matchList[i][0][0]
+        x = matchList[i][1][1] - matchList[i][0][1]
         dist.append([x, y])
 
     result = pd.value_counts(dist)
@@ -198,22 +195,25 @@ def label(img):
 VERSION = "0.1.0"
 OVERWRITE = True
 
+PIXEL2DISTANCE = 1.58
+
 currentImageFile = "img/currentImage.png"
 oldImageFile = "img/oldImage.png"
 
 if __name__ == "__main__":
     try:
-        opts, args = getopt.getopt(sys.argv[1:], 'hvnoc', [''])
+        opts, args = getopt.getopt(sys.argv[1:], 'hvnocp', [''])
     except getopt.GetoptError:
         print("Run \'brick.py -h or --help\' for more information.")
         sys.exit(2)
     for opt, arg in opts:
         if opt in ('-h', '--help'):
-            print("-v, --version                        Version")
+            print("-v, --version                           Version")
             print(
-                "-n, --nooverwrite                      Disable Overwrite at current Image to old Image")
-            print("-o, --oldImage [image Path]          Image Path")
+                "-n, --nooverwrite                         Disable Overwrite at current Image to old Image")
+            print("-o, --oldImage [image Path]             Image Path")
             print("-c, --currentImage [image Path]")
+            print("-p, --pixel2distance [coefficient]      Pixel to distance coefficient [cm](default: 1.58)")
             sys.exit()
         elif opt in ('-v', '--ver'):
             print("version ", VERSION)
@@ -224,9 +224,8 @@ if __name__ == "__main__":
             oldImageFile = arg
         elif opt in ('-c', '--currentImage'):
             currentImageFile = arg
-
-    #print("oldImage: ", oldImageFile)
-    #print("currentImage: ", currentImageFile)
+        elif opt in ('-p', '--pixel2distance'):
+            PIXEL2DISTANCE = arg
 
     # memo:
     #   input: currentImage oldImage
@@ -253,4 +252,4 @@ if __name__ == "__main__":
     if OVERWRITE:
         os.remove(oldImageFile)
         os.rename(currentImageFile, oldImageFile)
-    print(distance)
+    print([ x*PIXEL2DISTANCE for x in distance])
