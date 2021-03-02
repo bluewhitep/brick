@@ -47,12 +47,12 @@ def clearGrid(data):
 
 def isMax(markers):
     a, b = np.unique(markers, return_counts=True)
-    label, pxiel = 0, 0
+    label, pixel = 0, 0
     for i in range(1, len(a)):
-        if b[i] >= pxiel:
-            pxiel = b[i]
+        if b[i] >= pixel:
+            pixel = b[i]
             label = a[i]
-    return label, pxiel
+    return label, pixel
 
 
 def getPos(markers, label):
@@ -141,7 +141,7 @@ def matchPoint(pointList1, pointList2):
     return matchList
 
 
-def pxielDistance(matchList):
+def pixelDistance(matchList):
     dist = []
     for i in range(len(matchList)):
         y = matchList[i][1][0] - matchList[i][0][0]
@@ -160,7 +160,7 @@ def birckCount(markers1, markers2):
     effectivePointList1 = getEffectivePoint(markers1)
     effectivePointList2 = getEffectivePoint(markers2)
     matchList = matchPoint(effectivePointList1, effectivePointList2)
-    return pxielDistance(matchList)
+    return pixelDistance(matchList)
 
 
 def cutImage(img):
@@ -193,9 +193,9 @@ def label(img):
 
 
 VERSION = "0.1.0"
-OVERWRITE = True
+overwrite = True
 
-PIXEL2DISTANCE = 1.58
+pixel2distance = 1.58
 
 currentImageFile = "img/currentImage.png"
 oldImageFile = "img/oldImage.png"
@@ -219,13 +219,13 @@ if __name__ == "__main__":
             print("version ", VERSION)
             sys.exit()
         elif opt in ('-n', '--nooverwrite'):
-            OVERWRITE = False
+            overwrite = False
         elif opt in ('-o', '--oldImage'):
             oldImageFile = arg
         elif opt in ('-c', '--currentImage'):
             currentImageFile = arg
         elif opt in ('-p', '--pixel2distance'):
-            PIXEL2DISTANCE = arg
+            pixel2distance = arg
 
     # memo:
     #   input: currentImage oldImage
@@ -252,4 +252,4 @@ if __name__ == "__main__":
     if OVERWRITE:
         os.remove(oldImageFile)
         os.rename(currentImageFile, oldImageFile)
-    print([ x*PIXEL2DISTANCE for x in distance])
+    print([ x*pixel2distance for x in distance])
