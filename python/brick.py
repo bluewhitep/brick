@@ -249,7 +249,7 @@ if __name__ == "__main__":
     oldMarkers = label(oldImage)
     distance = birckCount(oldMarkers, currentMarkers)
 
-    if OVERWRITE:
+    if overwrite:
         os.remove(oldImageFile)
         os.rename(currentImageFile, oldImageFile)
     print([ x*pixel2distance for x in distance])
