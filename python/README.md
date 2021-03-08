@@ -6,7 +6,7 @@ This CLI version.
 
 ## Install
 
-`pip install -r requirements.txt  ` 
+`pipenv install -r requirements.txt  ` 
 
 ## Depend
 
@@ -48,4 +48,12 @@ Return `[x_distance, y_distance]`
 > y_distance: Positive values is distance moved left  
 
 Unit is **centimeter**
+
+
+
+## 处理过程
+
+
+
+## 视频
 
