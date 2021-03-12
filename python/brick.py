@@ -21,6 +21,7 @@ import getopt
 import numpy as np
 import pandas as pd
 
+
 def clearGrid(data):
     x, y = data.shape
     for j in range(y-1):
@@ -202,18 +203,19 @@ oldImageFile = "img/oldImage.png"
 
 if __name__ == "__main__":
     try:
-        opts, args = getopt.getopt(sys.argv[1:], 'hvnocp', [''])
+        opts, args = getopt.getopt(sys.argv[1:], 'h:v:n:o:c:p', ['help', 'version', 'nooverwrite',
+                                                                 'oldImage=', 'currentImage=', 'pixel2distance=' ])
     except getopt.GetoptError:
         print("Run \'brick.py -h or --help\' for more information.")
         sys.exit(2)
+
     for opt, arg in opts:
         if opt in ('-h', '--help'):
             print("-v, --version                           Version")
-            print(
-                "-n, --nooverwrite                         Disable Overwrite at current Image to old Image")
-            print("-o, --oldImage [image Path]             Image Path")
-            print("-c, --currentImage [image Path]")
-            print("-p, --pixel2distance [coefficient]      Pixel to distance coefficient [cm](default: 1.58)")
+            print("-n, --nooverwrite                       Disable Overwrite at current Image to old Image")
+            print("-o, --oldImage=[image Path]             Image Path")
+            print("-c, --currentImage=[image Path]")
+            print("-p, --pixel2distance=[coefficient]      Pixel to distance coefficient [cm](default: 1.58)")
             sys.exit()
         elif opt in ('-v', '--ver'):
             print("version ", VERSION)
@@ -252,4 +254,4 @@ if __name__ == "__main__":
     if overwrite:
         os.remove(oldImageFile)
         os.rename(currentImageFile, oldImageFile)
-    print([ x*pixel2distance for x in distance])
+    print([x*pixel2distance for x in distance])

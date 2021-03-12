@@ -19,12 +19,12 @@ This CLI version.
 
 ## Option
 
-|        Option        |                    Description                    |
-| :------------------: | :-----------------------------------------------: |
-|    -v, --version     |                      Version                      |
-|  -n, --nooverwrite   |  Disable Overwrite at current Image to old Image  |
-|    -o, --oldImage    |                  old Image Path                   |
-|  -c, --currentImage  |                current Image Path                 |
+| Option               | Description                                       |
+| :------------------- | :------------------------------------------------ |
+| -v, --version        | Version                                           |
+| -n, --nooverwrite    | Disable Overwrite at current Image to old Image   |
+| -o, --oldImage       | old Image Path                                    |
+| -c, --currentImage   | current Image Path                                |
 | -p, --pixel2distance | Pixel to distance coefficient [cm](default: 1.58) |
 
 ## Example
@@ -51,9 +51,21 @@ Unit is **centimeter**
 
 
 
-## 处理过程
+# Cut frame for video (Other)
 
+Split mp4 format video into frame pictures
 
+## Option
 
-## 视频
+| Option        | Description |
+| :------------ | :---------- |
+| -v, --version | Version     |
+| -i, --input   | Video Path  |
+| -o, --output  | Output Path |
+
+## Example 
+
+* `python cutframe.py -i mov/test.mp4 -o out`
+
+The frame saved with `out` directory.
 
