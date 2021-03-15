@@ -10,6 +10,14 @@ Download :
 
 See the `/python` directory for Use
 
+## How to work
+
+![avatar](E:\workspace\brick\01.png)
+
+![avatar](E:\workspace\brick\02.png)
+
+
+
 # Copyright
 
 * See the `LICENSE` file
