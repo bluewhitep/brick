@@ -12,9 +12,9 @@ See the `/python` directory for Use
 
 ## How to work
 
-![avatar](E:\workspace\brick\01.png)
+![avatar](01.png)
 
-![avatar](E:\workspace\brick\02.png)
+![avatar](02.png)
 
 
 
